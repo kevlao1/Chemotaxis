@@ -1,5 +1,6 @@
 friend[] ohNoes = new friend[25];
-int mouseXPos, mouseYPos;
+int mouseXPos, mouseYPos; 
+int aColor = color(255, 255, 255);
 
 void setup(){
  size(1000, 1000); 
@@ -8,13 +9,18 @@ void setup(){
 }
 
 void draw(){
-  background(255);
+  background(aColor);
   mouseXPos = mouseX;
   mouseYPos = mouseY;
   sadness();
  for(int num = 0; num < ohNoes.length; num++){
  ohNoes[num].show();
  ohNoes[num].RUN();
+ if(millis()%1000 == 0 &&  get((int)(Math.random()*1000), (int)(Math.random()*1000)) != color(250, 210, 150)){
+aColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+if(aColor == color(250, 210, 150))
+aColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+}
  }
 }
 
